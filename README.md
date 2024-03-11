@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Flutter - Basic Widgtes
-=======
-# Flutter - Widgets Básicos
->>>>>>> 04fd2cd07c4d74f8b7e486aece030b2dd82d4278
 
 Flutter Basic Widgets.
 
@@ -16,11 +12,8 @@ Lista de Widgets:
 - Container
 - Rows & Columns
 - MediaQuery
-<<<<<<< HEAD
 - LayoutBuilder
 - Botões e Rotação de Texto
 - SingleChidScrollView
 - ListView
 - Dialogs
-=======
->>>>>>> 04fd2cd07c4d74f8b7e486aece030b2dd82d4278
