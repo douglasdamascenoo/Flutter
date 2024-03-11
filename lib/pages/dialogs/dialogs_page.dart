@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_primeiro_projeto/pages/dialogs/dialog_custom.dart';
@@ -15,8 +18,8 @@ class DialogsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Custom Dialog
             ElevatedButton(
-              // Custom Dialog
               onPressed: () {
                 showDialog(
                   barrierDismissible: false,
@@ -31,8 +34,8 @@ class DialogsPage extends StatelessWidget {
                   foregroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text('Dialog'),
             ),
+            // Simple Dialog
             ElevatedButton(
-              // Simple Dialog
               onPressed: () {
                 showDialog(
                   barrierDismissible: false,
@@ -59,31 +62,53 @@ class DialogsPage extends StatelessWidget {
                   foregroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text('Simple Dialog'),
             ),
+            // Alert Dialog (Material e Cupertino AlertDialog)
             ElevatedButton(
-              // Alert Dialog
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (_) {
-                    return AlertDialog(
-                      title: const Text('Alert Dialog'),
-                      content: const SingleChildScrollView(
-                        child: ListBody(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Text('Body'),
-                            ),
-                          ],
+                    if (Platform.isIOS) {
+                      return CupertinoAlertDialog(
+                        title: const Text('Alert Dialog'),
+                        content: const SingleChildScrollView(
+                          child: ListBody(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Text('Body'),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      actions: [
-                        TextButton(
-                            onPressed: () {}, child: const Text('Cancelar')),
-                        TextButton(
-                            onPressed: () {}, child: const Text('Confirmar')),
-                      ],
-                    );
+                        actions: [
+                          TextButton(
+                              onPressed: () {}, child: const Text('Cancelar')),
+                          TextButton(
+                              onPressed: () {}, child: const Text('Confirmar')),
+                        ],
+                      );
+                    } else {
+                      return AlertDialog(
+                        title: const Text('Alert Dialog'),
+                        content: const SingleChildScrollView(
+                          child: ListBody(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Text('Body'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                              onPressed: () {}, child: const Text('Cancelar')),
+                          TextButton(
+                              onPressed: () {}, child: const Text('Confirmar')),
+                        ],
+                      );
+                    }
                   },
                 );
               },
@@ -92,24 +117,35 @@ class DialogsPage extends StatelessWidget {
                   foregroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text('Alert Dialog'),
             ),
+            // TimePicker
             ElevatedButton(
-              // TimePicker
               onPressed: () async {
-                final timer = await showTimePicker(
+                //if (Platform.isIOS) {
+                showModalBottomSheet(
                   context: context,
-                  initialTime: TimeOfDay.now(),
+                  builder: (context) {
+                    return CupertinoTimerPicker(
+                      onTimerDurationChanged: (value) {},
+                    );
+                  },
                 );
-                if (kDebugMode) {
-                  print('O timer selecionado foi $timer');
-                }
+                // } else {
+                //   final timer = await showTimePicker(
+                //     context: context,
+                //     initialTime: TimeOfDay.now(),
+                //   );
+                //   if (kDebugMode) {
+                //     print('O timer selecionado foi $timer');
+                //   }
+                // }
               },
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.yellow),
                   foregroundColor: MaterialStatePropertyAll(Colors.black)),
               child: const Text('Time Picker'),
             ),
+            // Date Picker
             ElevatedButton(
-              // Date Picker
               onPressed: () async {
                 final date = await showDatePicker(
                   context: context,
@@ -126,9 +162,8 @@ class DialogsPage extends StatelessWidget {
                   foregroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text('Date Picker'),
             ),
+            // About Dialog
             ElevatedButton(
-              // About Dialog
-              // Date Picker
               onPressed: () async {
                 showAboutDialog(
                   context: context,

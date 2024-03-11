@@ -88,7 +88,26 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(),
+      body: Theme(
+        //data: ThemeData(primaryColor: Colors.amber),
+        data: Theme.of(context).copyWith(),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Bottão de Teste'),
+              ),
+              Container(
+                height: 100,
+                width: 300,
+                color: Theme.of(context).primaryColor,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -27,7 +27,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: Colors.blue,
+        primaryColorDark: Colors.blue,
+        primaryColorLight: Colors.blue,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+        ),
         useMaterial3: true,
       ),
       locale: DevicePreview.locale(context),

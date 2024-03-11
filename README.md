@@ -1,6 +1,6 @@
-# flutter_primeiro_projeto
+# Flutter - Basic Widgtes
 
-Flutter Widgets.
+Flutter Basic Widgets.
 
 ## Widgets
 
@@ -12,3 +12,8 @@ Lista de Widgets:
 - Container
 - Rows & Columns
 - MediaQuery
+- LayoutBuilder
+- Botões e Rotação de Texto
+- SingleChidScrollView
+- ListView
+- Dialogs
