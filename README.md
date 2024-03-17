@@ -4,7 +4,7 @@ Flutter Basic Widgets.
 
 ## Widgets
 
-Este projeto contempla a apresentação de alguns dos principais widgets do Flutter.
+Este projeto contempla a apresentação de alguns dos principais widgets do Flutter com o detalhe de suas implementações dividas em páginas.
 
 Lista de Widgets:
 
@@ -17,3 +17,4 @@ Lista de Widgets:
 - SingleChidScrollView
 - ListView
 - Dialogs
+- SnackBar
